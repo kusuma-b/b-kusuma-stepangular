@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    
+    <style>
+        body{ font: 14px sans-serif; }
+        .wrapper{ width: 360px; padding: 20px; }
+        input[type=text], input[type=password] {
+  width: 25%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+.login {
+  background-color:#457B9D;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 20%;
+  opacity: 0.9;
+  text-align:center;
+}
+#welcome{
+  font-size: 25px;
+  color:maroon;
+}
+body{
+   background-image: url('logo.png');
+   background-repeat: no-repeat;
+   background-attachment: fixed;  
+   background-size: cover;
+}
+
+        
+    </style>
+</head>
+<body>
+    <p id = "welcome"><b>Welcome to Sails Software Solutions</b></p>
+<div style="font-family:verdana;">
+        <form method="post">
+             <div class="form-group" style="position:absolute;left:36%;top:26%;width:70%">
+                <label >USERNAME</label><br>
+                <input class ="inu"type="text" name="username" ><br>
+                <label>PASSWORD</label><br> 
+                <input class="inu" type="password" name="password">
+                <br>
+               
+            
+                <button type="submit" class="login" style="width:28%;">LOGIN</button>
+           
+            <p>Don't have an account? <a href="Registration.html" style="font-family:verdana;color:#457B9D;text-decoration:none;">Register </a> Here</p>
+        </div>
+        </form>
+    </div>
+    
+</body>
+</html>

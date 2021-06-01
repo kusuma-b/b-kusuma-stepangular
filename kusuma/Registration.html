@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    
+    <style>
+        body{ font: 14px sans-serif; }
+        .wrapper{ width: 360px; padding: 20px; }
+        input[type=text], input[type=password] {
+  width: 35%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+        .login {
+  background-color:#457B9D;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 20%;
+  opacity: 0.9;
+  text-align:center
+  ;
+}
+#welcome{
+  font-size: 25px;
+  color:maroon;
+}
+        
+    </style>
+</head>
+<body>
+    <p id = "welcome">Sails Software Solutions</p>
+    <div style="font-family: verdana;">
+
+        <h2 style="position:absolute;left:40%;top:10%;font-size:30px;">REGISTRATION</h2>
+        
+        <form  method="post">
+            <div class="form-group"  style="position:absolute;left:36%;top:26%;width:70%" >
+                <label>FULLNAME</label><br>
+                <input type="text" name="fullname" >
+            <br>
+                <label>USERNAME</label><br>
+                <input type="text" name="username">
+            <br>
+               <label>Email</label><br>
+               <input type="text"name="email">
+            <br>
+                <label>PASSWORD</label><br>
+                <input type="password" name="password">
+            <br>
+                
+                <button type="submit" class="login" style="width:38%;">REGISTER</button>
+           
+         
+             </div>
+        </form>
+    </div>    
+</body>
+</html>
