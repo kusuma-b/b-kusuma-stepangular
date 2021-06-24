@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!--<script src="script.js"></script>
+    <link rel="stylesheet" href="style.css" />-->
+    <style>
+    table {
+        border: 3px solid rgb(198, 35, 130);
+        border-collapse: collapse;
+      }
+      th {
+        border: 4px solid rgb(248, 6, 147);
+        padding: 4px;
+        text-align: left;
+        font-size: 120%;
+      }
+      td {
+        border: 2px solid rgb(165, 5, 138);
+      }
+      body {
+        background-color:rgb(7, 231, 247);
+      }
+      caption {
+        font-size: 2rem;
+        font-style: normal;
+        margin-bottom: 30px;
+        padding-bottom: 10px;
+      }
+      .first {
+        border-radius: 15px 15px;
+        position: absolute;
+        left: 10px;
+        margin-top: 45px;
+        font-size: 17px;
+        color: rgb(255, 255, 255);
+        background-color: #0011ff;
+      }
+      .first:hover {
+        background-color: whitesmoke;
+        color: darkblue;
+      }
+      .second {
+        border-radius: 15px 15px;
+        position: absolute;
+        left: 150px;
+        margin-top: 45px;
+        font-size: 17px;
+        color: rgb(255, 255, 255);
+        background-color: #0400ff;
+      }
+      .second:hover {
+        background-color: rgba(245, 245, 245, 0.938);
+        color: darkblue;
+      }
+      </style>
+      <script>
+          "use strict";
+let results;
+fetch("https://jsonplaceholder.typicode.com/posts")
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (json) {
+    consoleLogJson(json);
+  });
+function consoleLogJson(json) {
+	
+  let table = document.getElementById("tablebody");
+  results = json;
+  for (let i = 0; i < results.length; i++) {
+    let row = `<tr>
+    <td>${results[i].userId}</td>
+    <td>${results[i].id}</td>
+      <td>${results[i].title}</td>
+        <td>${results[i].body}</td></tr>`;
+    table.innerHTML += row;
+  }
+}
+function search() {
+  document.getElementById("tablebody").innerHTML='';
+  let table = document.getElementById("tablebody");
+  /*let a1 = prompt("Enter userId");*/
+  let a2 = prompt("Enter id");
+  /*let a3 = prompt("Enter title");
+  let a4 = prompt("Enter value of completed");*/
+  
+  for (let i = 0; i < results.length; i++) {
+    if (results[i].userId==a1){
+    let row = `<tr>
+    <td>${results[i].userId}</td>
+    <td>${results[i].id}</td>
+      <td>${results[i].title}</td>
+        <td>${results[i].body}</td></tr>`;
+    table.innerHTML += row;
+}
+  }
+}
+function deletedata() {
+  document.getElementById("tablebody").innerHTML='';
+  let table = document.getElementById("tablebody");
+  //let a1 = prompt("Enter userId");
+  let a2 = prompt("Enter id");
+  /*let a3 = prompt("Enter title");
+  let a4 = prompt("Enter value of completed");*/
+  
+  for (let i = 0; i < results.length; i++) {
+    if (results[i].id!=a2){
+    let row = `<tr>
+    <td>${results[i].userId}</td>
+    <td>${results[i].id}</td>
+      <td>${results[i].title}</td>
+        <td>${results[i].body}</td></tr>`;
+    table.innerHTML += row;
+}
+  }
+}
+
+      </script>
+  </head>
+  <body>
+    <button type="button" onclick="search();on()" class="first">
+      search here
+    </button>
+    <button type="button" onclick="deletedata()" class="second">
+      delete data
+    </button>
+    <table style="width: 100%">
+      <caption>
+        <b>Fetching Data From PostList</b>
+      </caption>
+      <tr>
+        <th>UserId</th>
+        <th>id</th>
+        <th>Title</th>
+        <th>Body</th>
+      </tr>
+      <tbody id="tablebody"></tbody>
+    </table>
+  </body>
+</html>
+© 2021 GitHub, Inc.

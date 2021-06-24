@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Assignment2</title>
+	<script type="text/javascript">
+		// this array is useful to get the day from dayNumber
+		// useful in displaying day by knowing day number selected by user
+		// we will get dayNumber from <select> input
+		var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+		function daysDifference(){
+			var dateI1 = document.getElementById("dateInput1").value; 
+			var dateI2 = document.getElementById("dateInput2").value;
+			var startDate = new Date(dateI1);
+			var endDate = new Date(dateI2);
+
+			var dayNumber = document.getElementById("myList").value; // gets the day number (0 for sunday, 1 for monday, ....)
+			
+			if(dayNumber == -1){ // means day not selected
+				document.getElementById("result").innerHTML = "Please select the day!!!";
+				return;
+			}
+			var noOfDays = 0; // used to store no of days we get
+			var datesArray = []; // used to store dates that the selected day comes
+			var totalDays = 0; // to store the total days between the given dates
+
+			for (var i = startDate; i <= endDate; ){
+			    if (i.getDay() == dayNumber){ // i.getDay() returns 0, 1,... (0 for sunday, ...)
+			    	// so here our required day equals to date day
+			        noOfDays++; // increment
+
+			        // store the date to display in array
+			        var dayDate = i.getDate() + "-" + (i.getMonth() + 1) + "-" + i.getFullYear();
+			        datesArray.push(dayDate); // pushing to array
+			    }
+
+			    totalDays++; 
+
+			    i.setTime(i.getTime() + 1000*60*60*24); // incrementing i as one day, i.e., i goes to next date
+			}
+			// result is to display
+			var result = "Total days is "+totalDays+"<br />No of "+days[dayNumber]+"s between "+dateI1 +" and "+dateI2 + " is: "+noOfDays+"<br />The days are: <br />";
+
+			// appending dates to result
+			for(var i=0;i<datesArray.length;i++){
+				result+=datesArray[i] + "<br />";
+			}
+			// showing result
+			document.getElementById("result").innerHTML = result;
+			return false;
+		}
+	</script>
+</head>
+<body style="background-color:grey;">
+    
+	<p>Select a day:
+		<select id = "myList">             
+			<option value="-1">Week Day </option>  
+			<option value="0"> Sunday </option>  
+			<option value="1"> Monday </option>  
+			<option value="2"> Tuesday </option>  
+			<option value="3"> Wednesday</option> 
+			<option value="4"> Thursday</option> 
+			<option value="5"> Friday</option>  
+			<option value="6"> Saturday</option>  
+		</select> 
+	</p>
+	<h3>Calculate Days between Dates</h3>
+	<p> <b> Enter date1: </b> 
+		<input type="date" id="dateInput1"> <br> <br> 
+	</p>
+	<p> <b> Enter date2: </b> 
+		<input type="date" id="dateInput2"> 
+	</p>
+	<button onclick="daysDifference()">Calculate number of days </button> 
+
+	<p id="result"></p>
+</body>
+</html>
